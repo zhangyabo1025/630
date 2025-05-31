@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>復興高中資安班｜AI資安學程</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #00c6ff, #0072ff);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #ddd;
+    }
+
+    .container {
+      max-width: 800px;
+      padding: 2rem;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+      margin: 2rem;
+    }
+
+    .highlight {
+      color: #00ffff;
+      font-weight: bold;
+    }
+
+    .button {
+      margin-top: 1.2rem;
+      padding: 0.8rem 2rem;
+      background-color: #00c6ff;
+      border: none;
+      color: #fff;
+      font-size: 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #0072ff;
+    }
+
+    .interactive {
+      margin-top: 2rem;
+      padding: 1rem;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 12px;
+      text-align: center;
+    }
+
+    .interactive input {
+      padding: 0.5rem;
+      border-radius: 6px;
+      border: none;
+      margin-right: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>復興高中資安班</h1>
+    <p>一起踏上 AI 資安學程，開啟探索與挑戰的冒險之旅！</p>
+  </header>
+
+  <div class="container">
+    <p>
+      <span class="highlight">AI資安學程</span> 是一個分散式學習資安的專班，我們不僅學習技術，更培養實戰能力。
+      資安班常舉辦 <span class="highlight">活動</span> 與 <span class="highlight">競賽</span>，讓你在實作中成長。
+    </p>
+    <p>
+      在這裡你會遇到 <span class="highlight">志同道合的夥伴</span>，一起學習、一起成長。
+      資安班是一個 <span class="highlight">避風港</span>，更是一個努力追夢的起點。
+    </p>
+    <p>
+      無論你是初學者或已經有經驗，我們都歡迎你加入，共創資安的未來！
+    </p>
+    <div class="interactive">
+      <label for="name">想了解復興高中資安班嗎？請留下名字：</label><br>
+      <input type="text" id="name" placeholder="輸入你的名字...">
+      <button class="button" onclick="joinUs()">加入我們！</button>
+      <p id="response" style="margin-top: 1rem; color: #00ffff;"></p>
+      <button id="nextBtn" class="button" style="display: none;" onclick="goNext()">繼續了解資安班</button>
+    </div>
+  </div>
+
+  <script>
+    function joinUs() {
+      const name = document.getElementById('name').value;
+      const response = document.getElementById('response');
+      const nextBtn = document.getElementById('nextBtn');
+      
+      if (name.trim() === '') {
+        response.textContent = '請先輸入你的名字！';
+        nextBtn.style.display = 'none';
+      } else {
+        response.textContent = `歡迎加入，${name}！資安世界等你來冒險！`;
+        nextBtn.style.display = 'inline-block';
+      }
+    }
+
+    function goNext() {
+      window.location.href = "more.html"; // 將這個換成你的實際頁面路徑
+    }
+  </script>
+</body>
+</html>
