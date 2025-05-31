@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>深入了解資安班｜復興高中</title>
+  <style>
+    body {
+      background-color: #000;
+      color: #ccc;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1, h2 {
+      color: #00ffff;
+      text-align: center;
+    }
+
+    section {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1.5rem;
+      background-color: rgba(255, 255, 255, 0.05);
+      border-radius: 12px;
+      box-shadow: 0 0 15px #00ffff33;
+    }
+
+    ul li {
+      margin: 0.5rem 0;
+      padding: 0.5rem;
+      cursor: pointer;
+      border-radius: 6px;
+      transition: 0.3s;
+    }
+
+    ul li:hover {
+      background-color: #00ffff22;
+      color: #0ff;
+    }
+
+    blockquote {
+      background: rgba(255, 255, 255, 0.1);
+      border-left: 4px solid #0ff;
+      padding: 1rem;
+      margin: 1rem 0;
+      font-style: italic;
+    }
+
+    .button {
+      background: linear-gradient(to right, #0ff, #08f);
+      padding: 0.7rem 1.5rem;
+      border-radius: 6px;
+      color: #000;
+      text-decoration: none;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 1rem;
+    }
+
+    #quiz-result {
+      text-align: center;
+      margin-top: 1rem;
+      font-size: 1.2rem;
+      color: #0ff;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <h1>歡迎深入了解資安班</h1>
+    <p style="text-align:center;">復興高中 AI 資安學程，等你來挑戰！</p>
+  </section>
+
+  <section class="modules">
+    <h2>我們學什麼？</h2>
+    <ul>
+      <li>🔐 Web 漏洞與攻防技術</li>
+      <li>🧠 AI 與資安的跨域應用</li>
+      <li>📦 密碼學與演算法解析</li>
+      <li>🕵️‍♀️ CTF 實戰演練與團隊競賽</li>
+    </ul>
+  </section>
+
+  <section class="testimonials">
+    <h2>學長姐怎麼說？</h2>
+    <blockquote>
+      「從零開始學資安，現在已經能參加全國 CTF 競賽了！」 — 小明，高二
+    </blockquote>
+    <blockquote>
+      「資安班是我每天來學校最期待的地方，這裡有挑戰也有夥伴！」 — 小琪，高三
+    </blockquote>
+  </section>
+
+  <section class="quiz">
+    <h2>資安小挑戰 🔐</h2>
+    <p>哪一個不是常見的 Web 資安漏洞？</p>
+    <ul>
+      <li onclick="checkAnswer(this, false)">A. SQL Injection</li>
+      <li onclick="checkAnswer(this, false)">B. XSS</li>
+      <li onclick="checkAnswer(this, true)">C. Pizza Injection</li>
+      <li onclick="checkAnswer(this, false)">D. CSRF</li>
+    </ul>
+    <p id="quiz-result"></p>
+  </section>
+
+  <section class="cta" style="text-align:center;">
+    <h2>想成為資安高手？</h2>
+    <a class="button" href="mailto:cyber@fshs.edu.tw">立即聯絡我們</a>
+  </section>
+
+  <script>
+    function checkAnswer(el, isCorrect) {
+      const result = document.getElementById("quiz-result");
+      if (isCorrect) {
+        result.textContent = "🎉 答對了！Pizza Injection 是開玩笑的 😄";
+      } else {
+        result.textContent = "❌ 錯了喔～這可是資安圈常見的漏洞！";
+      }
+    }
+  </script>
+
+</body>
+</html>

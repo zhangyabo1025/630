@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>復興高中資安班</title>
+  <style>
+    /* 整體設定 */
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #000;
+      color: #eee;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      min-height: 100vh;
+    }
+
+    /* 頁首設計 */
+    header {
+      text-align: center;
+      padding: 3rem 1rem;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(to right, #0ff, #0af);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      -webkit-text-fill-color: transparent;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+
+    /* 主內容區塊 */
+    .container {
+      background-color: rgba(255, 255, 255, 0.05);
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 0 20px #0ff2;
+      max-width: 800px;
+      margin: 2rem;
+      backdrop-filter: blur(8px);
+    }
+
+    .highlight {
+      color: #0ff;
+      font-weight: bold;
+    }
+
+    /* 輸入區 + 按鈕 */
+    .interactive {
+      margin-top: 2rem;
+      text-align: center;
+    }
+
+    input[type="text"] {
+      padding: 0.5rem 1rem;
+      border: none;
+      border-radius: 6px;
+      background-color: #111;
+      color: #0ff;
+      margin-right: 0.5rem;
+      outline: none;
+    }
+
+    button {
+      padding: 0.5rem 1.2rem;
+      background: linear-gradient(to right, #0ff, #08f);
+      border: none;
+      border-radius: 6px;
+      color: #000;
+      font-weight: bold;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    button:hover {
+      transform: scale(1.05);
+    }
+
+    #next-link {
+      display: none;
+      margin-top: 1rem;
+      color: #0ff;
+      text-decoration: underline;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>復興高中資安班</h1>
+    <p>黑科技感 X AI資安學程：探索你的無限可能</p>
+  </header>
+
+  <div class="container">
+    <p>
+      <span class="highlight">AI資安學程</span> 是專為有志於資安的學生設計的學程，融合技術與實戰訓練，
+      並經常舉辦 <span class="highlight">活動</span> 與 <span class="highlight">競賽</span>。
+    </p>
+    <p>
+      你將遇見 <span class="highlight">志同道合的夥伴</span>，一起學習成長，
+      資安班更是成為你在學校中的 <span class="highlight">避風港</span> 與 <span class="highlight">動力來源</span>。
+    </p>
+
+    <div class="interactive">
+      <label for="name">想了解更多？請輸入你的名字：</label><br><br>
+      <input type="text" id="name" placeholder="輸入你的名字...">
+      <button onclick="showMessage()">確認</button>
+      <p id="response"></p>
+      <a id="next-link" href="more.html">👉 繼續了解資安班</a>
+      <a href="game.html" class="button" style="margin-top: 1rem; display: inline-block;">想體驗駭客嗎，點擊這裡！</a>
+</div>
+    </div>
+  </div>
+
+  <script>
+    function showMessage() {
+      const name = document.getElementById('name').value.trim();
+      const response = document.getElementById('response');
+      const link = document.getElementById('next-link');
+
+      if (name === '') {
+        response.textContent = '請先輸入你的名字喔！';
+        link.style.display = 'none';
+      } else {
+        response.textContent = `歡迎你，${name}！點擊下方繼續探索資安班的世界👇`;
+        link.style.display = 'inline-block';
+      }
+    }
+  </script>
+</body>
+</html>
