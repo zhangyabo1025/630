@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>你想體驗駭客嗎？</title>
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #000;
+      color: #00ffcc;
+      font-family: 'Courier New', Courier, monospace;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      animation: flicker 2s infinite alternate;
+      text-align: center;
+      z-index: 2;
+    }
+
+    .btn {
+      margin-top: 2rem;
+      padding: 1rem 2rem;
+      background-color: #00ffcc;
+      color: #000;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+      z-index: 2;
+    }
+
+    .btn:hover {
+      transform: scale(1.1);
+      background-color: #00ffff;
+    }
+
+    /* 背景駭客文字動畫 */
+    .matrix {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: black;
+      overflow: hidden;
+      z-index: 1;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    @keyframes flicker {
+      0% { opacity: 1; }
+      50% { opacity: 0.4; }
+      100% { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="matrix">
+    <canvas id="matrixCanvas"></canvas>
+  </div>
+
+  <h1>你想體驗駭客嗎？</h1>
+  <button class="btn" onclick="location.href='index.html'">點擊開始</button>
+
+  <script>
+    const canvas = document.getElementById('matrixCanvas');
+    const ctx = canvas.getContext('2d');
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    const letters = "アカサタナハマヤラワ0123456789ABCDEFGHIJKLMNOPQRSTUVXYZ";
+    const fontSize = 16;
+    const columns = canvas.width / fontSize;
+
+    const drops = Array(Math.floor(columns)).fill(1);
+
+    function draw() {
+      ctx.fillStyle = "rgba(0, 0, 0, 0.05)";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.fillStyle = "#00ffcc";
+      ctx.font = fontSize + "px monospace";
+
+      for (let i = 0; i < drops.length; i++) {
+        const text = letters[Math.floor(Math.random() * letters.length)];
+        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+          drops[i] = 0;
+        }
+        drops[i]++;
+      }
+    }
+
+    setInterval(draw, 50);
+  </script>
+</body>
+</html>
